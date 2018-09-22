@@ -6,7 +6,7 @@ public class jewelsAndStones {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+                System.out.print(jewelInStones("aA","aAAbbbb"));
 	}
 	
 	public static int jewelInStones(String J, String S)
