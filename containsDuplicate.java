@@ -1,34 +1,27 @@
-package question219;
+package question217;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class containsDuplicate {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {1,2,3,1,5};
-		 Map<Integer,Integer> map=new HashMap<Integer,Integer>();
-		 System.out.println( containsNearbyDuplicate(nums,3) );
-
+      int[] nums= {1};
+      System.out.println( containsDuplicate(nums) );
 	}
 	
-    public static boolean containsNearbyDuplicate(int[] nums, int k) {
-    	
-    	 Map<Integer,Integer> map=new HashMap<Integer,Integer>();
-		 for(int i=0;i<nums.length;i++)
-		 {  
-			 if(map.containsKey(nums[i]))
-			 {
-				 if( i-map.get(nums[i])<=k )
-				 {
-					 System.out.println(i+" "+map.get(nums[i]));
-					 return true;
-				 }
-			 }
-			 map.put(nums[i],i);
-		 }
-		 return false;
+    public static boolean containsDuplicate(int[] nums) {
+        
+        boolean check=false;
+        Arrays.sort(nums);
+        for(int i=1; i<nums.length;i++)
+        {
+        	   if(nums[i]==nums[i-1])
+        	   {
+        		   check=true;
+        	   }
+        }
+        return check;
         
     }
 
