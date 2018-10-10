@@ -11,7 +11,7 @@ public class zigzagConversion {
        String result=convert(a,3);
        System.out.println(result);
     }
-	//run fast if use hashmap
+    //run fast if use hashmap
     public static String zigZag(String s, int numRows)
     {
 		        if(s.length()==0 || s.length()==1 || s.length()==2 || numRows==1)
