@@ -10,7 +10,51 @@ public class zigzagConversion {
       
        String result=convert(a,3);
        System.out.println(result);
-	}
+    }
+	//run fast if use hashmap
+    public static String zigZag(String s, int numRows)
+    {
+		        if(s.length()==0 || s.length()==1 || s.length()==2 || numRows==1)
+			{
+				return s;
+			}
+	        
+	                int[] swingArray=new int[s.length()];
+			swingArray[0]=0;swingArray[1]=1;
+			int one=1;int count=1;
+			for(int i=0;i<s.length()-2;i++)
+			{
+				if( (i+1)%(numRows-1)==0 )
+				{
+					one=one*(-1);
+				}
+				
+				count=count+one;
+				swingArray[i+2]=count;	
+				//System.out.println(swingArray[i+2]+" * "+(i+2));
+			}
+		    HashMap<Integer, String> map = new HashMap<Integer, String>(); 
+			for(int i=0;i<s.length();i++)
+			{
+				if(!map.containsKey(swingArray[i]))
+				{
+				map.put(swingArray[i], ""+s.charAt(i) );
+				}
+				else
+				{
+					map.put(swingArray[i], map.get(swingArray[i])+s.charAt(i));
+				}
+				
+			}
+			//System.out.println(map.get(0));
+			String r="";
+			for(String i : map.values())
+			{
+				r = r+i;
+			}
+			
+			return r;
+    }
 	
     public static String convert(String s, int numRows) 
     {
